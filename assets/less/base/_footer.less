@@ -1,0 +1,150 @@
+.site-footer {
+    background-color: @color-black2; // Màu nên footer
+    color: @color-gray; // Màu chữ chủ đạo
+    &_heading {
+        padding: 100px 15px 34px; // cách cách phần tử khác và tạo lề 15px
+        box-sizing: border-box; // chống tràn
+        width: calc(770px + 30px); // độ rộng của nội dung + 30px padding
+        max-width: 100%; // chiều rộng tự co lại khi màn hình < 770 + 30px
+        margin: 0 auto; // căn giữa khối
+        text-align: center; // căn giữa chữ
+        font-size: 14px;
+        line-height: 1.7142; // 24 / 14
+    }
+    &-logo-img {
+        width: 199px; // độ rộng logo
+        display: block; // có thể thay chiều cao
+        margin: 0 auto; // căn giữa
+        img {
+            width: 100%;
+        }
+    }
+    &_navbar {
+        .col {
+            .col(3);
+        }
+        a,
+        i {
+            color: @color-gray; // Màu chữ chủ đạo
+            font-size: 14px;
+            line-height: 2.8571; // 40 / 14
+        }
+        .row {
+            padding-top: 70px;
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                top: -1px; // Đường viền bên trên nội dung
+                left: 50%;
+                .translateX(-50%); // cho ra giữa
+                width: calc(100% - 30px); // Vì row tràn ngoài lề 2 bên 15px
+                height: 1px;
+                background-color: @color-gray4;
+            }
+        }
+    }
+    &-nav_heading {
+        margin-bottom: 18px;
+        text-transform: uppercase;
+        font-size: 18px;
+        line-height: 1.6666; // 30/18
+        color: @color-text--white;
+        font-weight: 700;
+    }
+}
+
+.footer {
+    &-logo {
+        margin-bottom: 28px;
+    }
+    &-social {
+        i {
+            color: @color-gray;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        ul {
+            display: flex; // dàn ngang
+            justify-content: center; // căn giữa
+            a {
+                width: 63px; // vì dộ rộng của icon ko cao bằng nên ko dùng padding để tạo độ rộng đc
+                padding: 20px 0; // tạo chiều cao
+                display: block; // có thể padding cả chiều dọc vì thẻ a là thẻ inline chuyển sang blokc
+            }
+        }
+    }
+    &-logo-img {
+        width: 199px;
+        display: block;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+    &-contact-us_list {
+        a {
+            display: flex;
+            align-items: center;
+            i {
+                width: 29px; // độ rộng icon khác nhau ta set width cho bằng nhau
+                .flex(0 0 29px);
+            }
+        }
+    }
+}
+
+.copyright {
+    margin-top: 39px;
+    background-color: @color-black;
+    &-link {
+        display: flex;
+        justify-content: center; // căn giữa nội dung
+        align-items: center; // căn giữa nội dung
+        color: @color-text--gray;
+        min-height: 50px; // chiều cao của copyright
+        height: fit-content; // chiều cao của copyright
+        font-size: 14px;
+        line-height: 2.1428; // 30 / 14
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 767.9px) {
+    .site-footer {
+        &_navbar {
+            .col {
+                .col(12);
+                p,
+                a {
+                    text-align: center;
+                    justify-content: center;
+                    width: 100%;
+                    display: block;
+                }
+            }
+            ul {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s;
+                &.active {
+                    max-height: 1000px; // mở ra
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023.9px) {
+    .site-footer {
+        &-nav_heading {
+            margin-top: 40px; // chỉnh lain cho cân đối
+        }
+        &_navbar {
+            margin-top: 40px; // chỉnh lain cho cân đối
+            .col {
+                .col(6);
+            }
+        }
+    }
+}

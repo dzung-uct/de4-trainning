@@ -1,0 +1,102 @@
+// font-face
+.font-face(
+    @family-name,
+    @font-name,
+    @font-weight: normal,
+    @font-style: normal,
+    @font-display: auto
+) {
+	@font-face {
+		font-family: @family-name;
+		src: url('@{baseDir}fonts/@{family-name}/ttf/@{font-name}.ttf')
+				format('truetype'),
+			url('@{baseDir}fonts/@{family-name}/woff/@{font-name}.woff')
+				format('woff'),
+			url('@{baseDir}fonts/@{family-name}/woff2/@{font-name}.woff2')
+				format('woff2');
+		font-weight: @font-weight;
+		font-style: @font-style;
+		font-display: @font-display;
+	}
+}
+// Transform
+.translate(
+	@_translateX: @translateX,
+	@_translateY: @translateY
+) {
+	transform: translate(@_translateX, @_translateY);
+	-webkit-transform: translate(@_translateX, @_translateY);
+	-moz-transform: translate(@_translateX, @_translateY);
+	-ms-transform: translate(@_translateX, @_translateY);
+	-o-transform: translate(@_translateX, @_translateY);
+}
+.translateX(
+	@_translateX: @translateX
+) {
+	transform: translateX(@_translateX);
+	-webkit-transform: translateX(@_translateX);
+	-moz-transform: translateX(@_translateX);
+	-ms-transform: translateX(@_translateX);
+	-o-transform: translateX(@_translateX);
+}
+.translateY(
+	@_translateY: @translateY
+) {
+	transform: translateY(@_translateY);
+	-webkit-transform: translateY(@_translateY);
+	-moz-transform: translateY(@_translateY);
+	-ms-transform: translateY(@_translateY);
+	-o-transform: translateY(@_translateY);
+}
+.scale(
+	@_scale: @scale
+) {
+	transform: translateY(@_scale);
+	-webkit-transform: translateY(@_scale);
+	-moz-transform: translateY(@_scale);
+	-ms-transform: translateY(@_scale);
+	-o-transform: translateY(@_scale);
+}
+.transform(@_transform:@transform) {
+	transform: @_transform;
+	-webkit-transform: @_transform;
+	-moz-transform: @_transform;
+	-ms-transform: @_transform;
+	-o-transform: @_transform;
+}
+
+// Flex
+.flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex(@_values) {
+	-webkit-box-flex: @_values;
+	-moz-box-flex: @_values;
+	-webkit-flex: @_values;
+	-ms-flex: @_values;
+	flex: @_values;
+}
+
+.order(@_val) {
+	-webkit-box-ordinal-group: @_val;
+	-moz-box-ordinal-group: @_val;
+	-ms-flex-order: @_val;
+	-webkit-order: @_val;
+	order: @_val;
+}
+
+// Col
+.col(@_col) {
+	max-width: calc(@_col * 100% / 12); // độ rộng của col / 12
+	flex: 0 0 calc(@_col * 100% / 12); // độ rộng của col / 12
+	position: relative;
+	width: 100%;
+	padding: 0 15px; // Khoảng cách giữa các col
+	box-sizing: border-box;
+}
